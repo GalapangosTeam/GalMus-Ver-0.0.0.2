@@ -1,0 +1,102 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/*a*/
+.adelante,.atras{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left: 0;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.atras {
+	transform: rotateY(180deg);
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	color:#fff;
+	font-family: 'Raleway', sans-serif;
+}
+.adelante{
+	width: 100%;
+}
+/*b*/
+	body{
+	  
+		background-repeat: no-repeat;
+	 	background-size:100% ;
+	}
+/*c*/
+    .cn{
+        color:black;
+    }
+/*d*/
+/*e*/
+/*f*/
+/*g*/
+/*h*/
+	h1{
+		color: black;
+		justify-content: center;
+		align-items: center;
+
+		text-align: center;
+	}
+
+/*i*/
+/*j*/
+/*k*/
+/*l*/
+/*m*/
+/*n*/
+/*o*/
+/*p*/
+	
+/*q*/
+/*r/
+/*s*/
+	
+/*t*/
+.targeta-wrap{
+	margin: 10px;
+	-webkit-perspective: 800;
+	perspective: 800;
+}
+.targeta-wrap:hover .targeta{
+	transform: rotateY(180deg);
+
+
+
+}
+.targeta{
+	width: 300px;
+	height: 350px;
+	background: orange;
+	justify-content: center;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: .7s ease;
+	-moz-box-shadow: 0px 0px 8px black;
+	-webkit-box-shadow: 0px 0px 8px black;
+	box-shadow: 0px 0px 8px black;
+}
+/*u*/
+
+/*v*/
+/*w*/
+.wrap{
+	width: 1100px;
+	margin: 50px auto;
+	display:flex;
+}
+/*x*/
+/*y*/
+/*z*/
+
