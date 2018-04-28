@@ -90,13 +90,14 @@
 		</header>
 
 		<!--Barra de Navegación-->
-		<nav id="barraNav" class="navbar sticky-top navbar-light">
+		<nav id="barraNav" class="navbar navbar-expand-lg sticky-top navbar-light">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#desplegue" aria-controls="desplegue" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="desplegue">
 				<li class="nav-item dropdown listanav">
 					<div class="nav-link dropdown-toggle" id="dropProductos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Productos </div>
 					    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						    <li><a class="nav-link dropdown-item dropdounColores" href="#video"> GalMus Software </a></li>
-						    <!--div class="dropdown-divider"></div>
-						    <li><a class="nav-link dropdown-item dropdounColores" href="#"> Material didáctico </a></li-->
 					    </ul>
 				</li>
 				<a id="noticias" class="nav-link" href="noticias.php"> Noticias </a>
@@ -129,6 +130,7 @@
         			<a id="regresarTodo" class="nav-link" href="usuarios/cerrar_sesion_users.php"><i class="fas fa-power-off"></i> Cerrar sesión </a>
         			<a id="bparteUserDatos_2" class="nav-link" href="#"><?php echo $_SESSION['nombres'].", ".$_SESSION['appat']."." ?></a>
         		</div>
+        	</div>
 		</nav>
 		
 		<!--Ventana modal-->
