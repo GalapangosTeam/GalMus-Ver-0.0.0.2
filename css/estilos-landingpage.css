@@ -224,38 +224,23 @@
 	}
 
 /* B */
-    #barraPromo{
-		display:inline-block;
-		font-size: 15px;
-		position:relative; 
-		text-align: center;
-	}
-	#bpartePromo_1{
-	
-		float:left; 
-		padding-left: 10px;	
-		padding-right: 10px; 
-		text-align: center;
-	}
-	#bpartePromo_2{
-		float:left;
-		text-align: center;	
-	}
 	#regresarTodo{
 		background-color: black;
 		float:right; 
 		text-align: center;
+		color:white;
 	}
 	#bparteUserDatos_2{
 		border-left: 20px solid #FFB347;
 		float:right;
 		text-align: center;
+		color:white;
 	}
 	.btn:active{
 	    background:#FFB347;
 	}
 	#btnregis{
-		font-size: 1.3vw;
+		font-size: 30px;
 	}
 	#btnbuscar{
 		font-size: 1.3vw;
@@ -272,7 +257,6 @@
 		float: left;
 		height: 80px;
 	}
-    
 	#cajabuscar{
 		font-size: 1.3vw;	
 	}
@@ -280,7 +264,10 @@
 		background-color: white;
 		font-family: 'Raleway', sans-serif;
 	}
-	
+	#cita{
+        font-size: 50px;
+        text-shadow: 1px -1px 1px rgba(150, 150, 150, 1);
+    }
 	.centrado{
 		margin: 0 auto;
 	    text-align: center;
@@ -400,7 +387,7 @@
 		color: white;
 	}
 	.foto:hover{
-		color: #FFB347;
+	    color: #FFB347;
 	}
 	.foto:before{
 		 -webkit-transform: scaleX(0);
@@ -432,7 +419,7 @@
 		transform: scaleX(1);
 	}
 	.foto:link{
-	   text-decoration:none; 
+	    text-decoration:none; 
 	}
 	.fecNac {
 		border-radius: 4px; 
@@ -452,13 +439,48 @@
 /* G */
 
 /* H */
-	header{
+	#header{
 		background-color: #FFB347;
+		/*background-color: rgb(50, 50, 50);*/
+		/*background: -prefix-linear-gradient(rgb(255, 204, 132), rgb(50, 50, 50));*/
+		/*background: linear-gradient(rgb(85, 68, 44),rgb(50, 50, 50));*/
+		/*border-radius: 0px 58px 58px 0px;
+        -moz-border-radius: 0px 58px 58px 0px;
+        -webkit-border-radius: 0px 58px 58px 0px;
+        -o-border-radius: 0px 58px 58px 0px;
+        -ms-border-radius: 0px 58px 58px 0px;*/
+        /*border-left: 5px solid #FFB347;*/
 		color: white;
-		font-size: 7vw;
+		font-size: 80px;
 		text-align: center;
-		outline-color: black;
-		outline-offset: 5px;
+		padding-bottom: 12px;
+		padding-top: 8px;
+	}
+	#headerNombre{
+	    text-shadow: -1px -4px 6px #000000;
+	    /*text-shadow: 2px 2px 5px #FFB347;*/
+        /*border-left: 15px solid #FFB347;
+        border-right: 15px solid #FFB347;
+        /*border-bottom: 5px solid #FFB347;*/
+        /* border-radius: 15px;*/
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 5px;
+	}
+	#headerBorde{
+	    /*border-left: 300px solid #FFB347;*/
+
+	}
+	#headerLinea{
+	   /* border: 3px solid white #FFB347; 
+	    border-radius: 5px; 
+	    margin:0;*/
+	}
+	#headerIsotipoGalMus{
+	    height: 29%; 
+	    width: 29%; 
+	    display: inline-block;
+	    /*background-color: #FFB347;*/
 	}
 	hr{
 		background-color: rgb(230, 230, 230);
@@ -537,6 +559,18 @@
 	#id01{
 		z-index: 10;
 	}
+    .ir-arriba {
+        display:none;
+        padding:20px;
+        background:rgb(255, 186, 102);
+        color: black;
+        cursor:pointer;
+        position: fixed;
+        bottom:40px;
+        right:23px;
+        border-radius: 10px;
+        z-index: 3;
+    }
 
 /* J */
 
@@ -610,8 +644,6 @@
         skew(0deg,22deg);
     }
 
-/*PROMOCIONES */
-
 /* M */
 	.main{
 	    background-color: white;
@@ -621,22 +653,308 @@
 	    height: 400px;
 	    width: 100%;
 	}
+	.menu-toggle {
+    	height: 18px;
+    	position: relative;
+    	-webkit-transform: rotate(0deg);
+    	-moz-transform: rotate(0deg);
+    	-o-transform: rotate(0deg);
+    	transform: rotate(0deg);
+    	-webkit-transition: .5s ease-in-out;
+    	-moz-transition: .5s ease-in-out;
+    	-o-transition: .5s ease-in-out;
+    	transition: .5s ease-in-out;
+    	cursor: pointer;
+    	margin: 2px auto;
+    	width: 30px;
+    }
+    .menu-toggle:hover {
+    	color: #999;
+    }
+    .menu-toggle i,
+    .menu-toggle i:after,
+    .menu-toggle i:before {
+    	display: block;
+    	position: absolute;
+    	height: 3px;
+    	width: 20px;
+    	right: 0;
+    	background: rgb(255, 255, 255);
+    	border-radius: 2px;
+    	-webkit-transform: rotate(0deg);
+    	-moz-transform: rotate(0deg);
+    	-o-transform: rotate(0deg);
+    	transform: rotate(0deg);
+    	-webkit-transition: .25s ease-in-out;
+    	-moz-transition: .25s ease-in-out;
+    	-o-transition: .25s ease-in-out;
+    	transition: .25s ease-in-out;
+    }
+    .menu-toggle i:after,
+    .menu-toggle i:before {
+    	content: '';
+    }
+    .menu-toggle i:after {
+    	top: -18px;
+    }
+    .menu-toggle i:before {
+    	top: -9px;
+    }
+    .menu-toggle i {
+    	top: 18px;
+    }
+    .menu-toggle.open i:after {
+    	-webkit-transform: rotate(45deg);
+    	-moz-transform: rotate(45deg);
+    	-o-transform: rotate(45deg);
+    	transform: rotate(45deg);
+    	top: -17px;
+    	background-color: rgb(46, 204, 113);
+    }
+    .menu-toggle.open i:before {
+    	-webkit-transform: rotate(-45deg);
+    	-moz-transform: rotate(-45deg);
+    	-o-transform: rotate(-45deg);
+    	transform: rotate(-45deg);
+    	top: -17px;
+    	background-color: rgb(46, 204, 113);
+    }
 
 /* N */
 	.nav-link {
 		color: white;
 		font-size: 30px;
 	}
+    /*ocultamos div de datos junto con el menu desplegable para dispositivos*/
+	@media (min-width: 992px) {
+	    #auxOculto, #barraPromo, #bpartePromo_01, #bpartePromo_02, #bparteUserDatos_2, #regresarTodo{
+	        display: none !important;
+	    }
+	    #barraCompleta{
+    		font-size: 20px;
+    		text-align: center;
+    		color: white;
+	    }
+	    #regresarTodoCompleta{
+    		background-color: black;
+    		font-size: 18px;
+    		color: white;
+	    	text-align: center;
+	    	border-right: 10px solid rgb(231, 76, 60);
+	    	border-left: 10px solid rgb(231, 76, 60);
+	        border-radius: 5px;
+	    }
+        #bpartePromoCompleta_1{
+    	    border-left: 10px solid rgb(245, 205, 87);
+    	    border-right: 10px solid rgb(245, 205, 87);
+	        border-radius: 5px 5px 5px 5px;
+    		padding-left: 10px;	
+    		padding-right: 10px;
+    		text-align: center;
+    		font-size: 18px;
+	        color: white;
+    	}
+    	#bpartePromoCompleta_2{
+    	    border-left: 10px solid rgb(245, 205, 87);
+    	    border-right: 10px solid rgb(245, 205, 87);
+	        border-radius: 5px 5px 5px 5px;
+    		text-align: center;
+    		font-size: 18px;
+	        color: white;
+    	}
+        #bparteUserDatosCompleta_2{
+	        border-left: 10px solid rgb(46, 204, 113);
+	        border-right: 10px solid rgb(46, 204, 113);
+	        border-radius: 5px;
+	        background-color: black;
+	        font-size: 18px;
+	        color: white;
+	    	text-align: center;
+	    }
+	    #rightMenu{
+	        background-color: black;
+	        width: 350px;
+	        height: 230px;
+	        margin: 1px !important;
+	        padding: 1px !important;
+	        opacity: 0.95;
+	        border-radius: 10px 0 0 10px;
+	        bottom: 45% !important;
+	    }
+	    .chida:hover{
+	        color: rgb(255, 178, 85) !important;
+	    }
+	    #elBotons{
+	        display:inline-block;
+        	padding:20px;
+        	cursor: pointer;
+        	position: fixed;
+        	bottom: 45%;
+        	right:10px;
+	    }
+	    #cita{
+	        font-size: 30px;
+	    }
+	}
+	/*breakpoint donde se hace el menu desplegable*/
+	@media (max-width: 992px) {/*solo para el boton de mostrarmenu con datos del ususario*/
+		#regresarTodo{
+    		background-color: black;
+    		font-size: 20px;
+    		color: white;
+    		float: right; 
+	    	text-align: center;
+	    	border-right: 10px solid rgb(231, 76, 60);
+	        border-radius: 5px;
+	    }
+	    #bparteUserDatos_2{
+	        border-left: 10px solid rgb(46, 204, 113);
+	        border-radius: 5px;
+	        background-color: black;
+	        font-size: 23px;
+	        color: white;
+	        float: left; 
+	    	text-align: center;
+	    	margin:0;
+	    }
+	    #barraCompleta, #bpartePromoCompleta_1, #bpartePromoCompleta_2, #regresarTodoCompleta, #bparteUserDatosCompleta_2, #sideBoton, #elBotons, #datosCuenta{
+	        display: none !important;
+	    }
+	    #barraPromo{
+    		display:inline-block;
+    		font-size: 15px;
+    		text-align: center;
+	    }
+    	#bpartePromo_01{
+    	    border-left: 10px solid rgb(245, 205, 87);
+	        border-radius: 5px 5px 5px 5px;
+    	    display:inline-block;
+    		text-align: left;
+    	}
+    	#bpartePromo_02{
+    	    border-right: 10px solid rgb(245, 205, 87);
+	        border-radius: 5px 5px 5px 5px;
+    	    display:inline-block;
+    		text-align: left;	
+    	}
+    	#desplegue{
+    	    margin: 0;
+    	    padding: 0;
+    	    background-color: rgb(87, 87, 87);
+            opacity: 0.95;
+    	}
+        #barraNav{
+    	    margin: 0;
+    	    padding-top: 3px;
+    	    padding-bottom: 5px;
+    	    padding-left: 0;
+    	    padding-right: 0;
+    	    opacity: 0.9;
+    	    /*filter: blur(3px); 
+            -webkit-filter: blur(3px); 
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px); 
+            -ms-filter: blur(3px);*/
+    	}
+    	#noticias, #acercaDE, #contactos, #misiones, #visiones{
+    	    display:inline-block;
+    	    text-align: center;
+        }
+        #btnregis{
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 0;
+            margin-bottom: 7px;
+        }
+	}
+	@media (max-width: 423px) {
+	    #barraNav{
+    	    margin: 0;
+    	    padding-top: 3px;
+    	    padding-bottom: 5px;
+    	    padding-left: 0;
+    	    padding-right: 0;
+    	}
+    	#noticias, #acercaDE, #contactos, #misiones, #visiones{
+    	    text-align: left;
+    	    display: block;
+        }
+	}
+	@media (max-width: 627px) {/*solo para el boton de mostrarmenu con datos del ususario*/
+		#regresarTodo{
+    		background-color: black;
+    		font-size: 18px;
+    		color: white;
+    		float: right; 
+	    	text-align: center;
+	    	border-right: 10px solid rgb(231, 76, 60);
+	        border-radius: 5px;
+	    }
+	    #bparteUserDatos_2{
+	        border-left: 10px solid rgb(46, 204, 113);
+	        border-radius: 5px;
+	        background-color: black;
+	        font-size: 20px;
+	        color: white;
+	        float: left; 
+	    	text-align: center;
+	    	margin:0;
+	    }
+	}
+	@media (max-width: 1235px) {
+        .nav-link {
+    		color: white;
+    		font-size: 25px;
+	    }
+	    #textoBtnUser, #btnregis,.navbar-nav{
+	       font-size: 22px;
+	    }
+    }
+    @media (min-width: 1236px){
+        #headerNombre{
+	        font-size: 90px;
+	    }
+    }
+    /*breakpoint donde aparece fila de datos,n promociomens etc en pantalla completa*/
+    @media (max-width: 1102px) {
+        .nav-link {
+    		color: white;
+    		font-size: 23px;
+	    }
+	    #textoBtnUser, #btnregis,.navbar-nav{
+	       font-size: 22px;
+	    }
+    }
 	@media (max-width: 850px) {		
 		.nav-link {
     		color: white;
     		font-size: 18px;
 	    }
+	    #header{
+    		font-size: 50px;
+    		text-align: center;
+    	}
+    	#cita{
+    	    font-size: 25px;
+    	}
+    	.btnSesion{
+		    font-size: 18px;
+	    }
 	}
 	@media (max-width: 550px) {		
 		.nav-link {
     		color: white;
-    		font-size: 14px;
+    		font-size: 16px;
+	    }
+	    #header{
+    		font-size: 42px;
+    		text-align: center;
+    	}
+    	#cita{
+    	    font-size: 25px;
+    	}
+    	.btnSesion{
+		    font-size: 16px;
 	    }
 	}
 	.nav-link:hover{
@@ -863,6 +1181,9 @@
 	
 	#txtbuscar{
 		font-size: 1.3vw;
+	}
+	#textoBtnUser{
+	        font-size: 25px;
 	}
 
 /* U */
