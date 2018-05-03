@@ -11,6 +11,7 @@
     		$now = time();
     		if($now > $_SESSION['expire']){
     			session_destroy();
+    			//header("Location: http://php.net/manual/es/function.ob-start.php")
     			echo "Su sesion a terminado,
     			<br><a href='indexx.php'>Necesita logueargse nuevamente</a>";
     			exit;
@@ -82,19 +83,35 @@
 		</div>
 
 		<!-- Encabezado, logo del la organización-->
-		<header class="header">
-			<!--Logo y cintura del logo-->
-			<div class="container">
-				<img src="imagenes/LandingPage/isotipo_galmus.png" alt="Isotipo de Galmus" class="img-fluid" style="width: 15%; height: 15%; vertical-align: middle;">GalMus
-			</div>
+		<header id="header">
+		    <div id="headerBorde" class="container align-items-center justify-content-center">
+    			<!--Logo y cintura del logo-->
+    		    <div class="row align-items-center justify-content-center">
+        			<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6">
+        			    <img id="headerIsotipoGalMus" src="imagenes/LandingPage/isotipo_galmus.png" alt="Isotipo de Galmus"  class="align-items-center justify-content-center img-fluid">
+                		<div id="headerNombre">GalMus</div>
+                		<!--div class="container"><hr id="headerLinea"></div>
+                		<!--div id="cita" style="margin: 0; text-align: center;"><q><cite>Aprendiendo día con día.</cite></q></div-->
+        			</div>
+	            </div>
+	        </div>
 		</header>
 
 		<!--Barra de Navegación-->
-		<nav id="barraNav" class="navbar navbar-expand-lg sticky-top navbar-light">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#desplegue" aria-controls="desplegue" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="desplegue">
-				<li class="nav-item dropdown listanav">
+		<nav id="barraNav" class="navbar navbar-expand-lg justify-content-center sticky-top navbar-light" onload="ocultar()">
+    		<button class="navbar-toggler text-white nav-link" type="button" data-toggle="collapse" data-target="#desplegue" aria-controls="desplegue" aria-expanded="false" aria-label="Toggle navigation" style="font-size: 23px;"><i class="fas fa-bars"></i> Ver menu
+    		</button>
+    		<!-- div que oculta y mustra los datos del usuario responsive-->
+    		<div id="auxOculto" class="align-items-center justify-content-center" style="display: none;">
+    			<a id="bparteUserDatos_2" class="navbar-brand nav-link" href="#"><i class="fas fa-user-circle fa-lg"></i> <?php echo $_SESSION['nombres'].", ".$_SESSION['appat']."." ?></a>
+    			<a id="regresarTodo" class="navbar-brand nav-link" href="usuarios/cerrar_sesion_users.php"><i class="fas fa-power-off fa-lg"></i> Cerrar sesión </a>
+			</div>
+			<div id="barraPromo" class="container" style="display: none;">
+        		<a id="bpartePromo_01" class="nav-link" href="#div-promociones" onclick="mostrar()" id="ind-promo"><i class="fas fa-certificate" onclick="mostrar()" href="#div-promociones"></i> Mis promociones </a>
+        		<a id="bpartePromo_02" class="nav-link" href="#descuentos" onclick="mdesc()" ><i class="fas fa-tags " data-fa-transform="rotate-260" href="#descuentos" onclick="mdesc()"></i> Descuentos </a>
+        	</div>
+			<div id="desplegue" class="collapse navbar-collapse align-items-center justify-content-center">
+				<li class="nav-item dropdown listanav align-items-center justify-content-center">
 					<div class="nav-link dropdown-toggle" id="dropProductos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Productos </div>
 					    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						    <li><a class="nav-link dropdown-item dropdounColores" href="#video"> GalMus Software </a></li>
@@ -105,34 +122,47 @@
 				<a id="contactos" class="nav-link" href="acercade2.php#contact"> Contacto </a>
 				<a id="misiones" class="nav-link" href="acercade2.php#mision"> Misión </a>
 				<a id="visiones" class="nav-link" href="acercade2.php#vision"> Visión </a>
-				<form class="form-inline my-2 my-lg-0">
+				<!--form class="form-inline my-2 my-lg-0">
 				    <input id ="cajabuscar" class="form-control mr-sm-2" type="text" placeholder="Buscar">
-				    <button id="btnbuscar" class="btn btn-outline-warning" type="submit">Buscar</button>
-				</form>
-				<button id ="btnregis" class="btn" type="button" data-toggle="modal" onclick="document.getElementById('id01').style.display='block', bloquearFormulario()">
-					<i id="iconoBtnUser" class="fas fa-user fa-lg"></i>
-					<strong id="textoBtnUser">Sesión</strong>
-				</button>
-				<!--boton oculto para cuando el usuario se loguee jajajaj-->
+				    <button id="btnbuscar" class="btn btn-outline-warning" type="submit"> Buscar </button>
+				</form-->
+		        <ul id="botton" class="navbar-nav">
+    				<button id ="btnregis" class="btn btnSesion" type="button" data-toggle="modal" onclick="document.getElementById('id01').style.display='block', bloquearFormulario()">
+    					<i class="fas fa-user-circle fa-lg" id="iconoBtnUser"></i>
+    					<span id="textoBtnUser"><strong>Entrar | Registrarse</strong></span>
+    				</button>
+				</ul>
+				<!--boton oculto y datos para cuando el usuario se loguee jajajaj-->
+				<a id="datosCuenta" class="chida  nav-link" style="color:white; display: none;"><i class="fas fa-user-circle fa-lg"></i><?php echo $_SESSION['nombres'].", ".$_SESSION['appat']."." ?></a>
 				<li id="btnCuenta" class="nav-item dropdown listanav" style="display: none;">
-					<div class="nav-link dropdown-toggle" id="dropCuentaUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i id="iconoBtnUser" class="fas fa-cog fa-spin"></i>Mi cuenta</div>
-					    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <li><a class="nav-link dropdown-item dropdounColores" href="#"> Mis datos </a></li>
-						    <div class="dropdown-divider"></div>
-						    <li><a class="nav-link dropdown-item dropdounColores" href="#" style="font-size: 20px;">Cambiar clave</a></li>
-					    </ul>
+					<div class="nav-link dropdown-toggle" id="dropCuentaUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i id="iconoBtnUser" class="fas fa-cog fa-spin"></i> Mi cuenta 
+				    </div>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <li><a class="nav-link dropdown-item dropdounColores" href="#" style="font-size: 21px;"> Mis datos </a></li>
+					    <div class="dropdown-divider"></div>
+					    <li><a class="nav-link dropdown-item dropdounColores" href="#" style="font-size: 21px;"> Cambiar clave</a></li>
+					    <div class="dropdown-divider"></div>
+					    <li><a class="nav-link dropdown-item dropdounColores" href="usuarios/cerrar_sesion_users.php" style="font-size: 21px;"> Cerrar sesión</a></li>
+					 </ul>
 				</li>
-    			<!--Barra para usuarios logueados.-->
-        		<div id="barraPromo" class="container" style="display: none;">
-        			<a id="bpartePromo_1" class="nav-link animated infinite pulse" href="#div-promociones" onclick="mostrar()" id="ind-promo"><i class="fas fa-certificate" onclick="mostrar()" href="#div-promociones" ></i> Mis promociones </a>
-        			<a id="bpartePromo_2" class="nav-link animated infinite pulse" href="#descuentos" onclick="mdesc()" ><i class="fas fa-tags " data-fa-transform="rotate-260" 
-        				href="#descuentos" onclick="mdesc()"></i> Descuentos</a>
-        			<a id="regresarTodo" class="nav-link" href="usuarios/cerrar_sesion_users.php"><i class="fas fa-power-off"></i> Cerrar sesión </a>
-        			<a id="bparteUserDatos_2" class="nav-link" href="#"><?php echo $_SESSION['nombres'].", ".$_SESSION['appat']."." ?></a>
-        		</div>
         	</div>
 		</nav>
-		
+
+		<!--Barra para usuarios logueados en pantalla completa, sin menu desplegable.-->
+		<span id="elBotons" style="display: none;">
+            <button id="sideBoton" class="w3-button w3-circle w3-xlarge w3-right" onclick="abrirMenuSide()" style="background-color: rgb(255, 178, 85); display: block;" title="Mini panel de mi cuenta"><i class="fas fa-bars fa-lg"></i></button>
+            <a id="sideBoton_2" class="w3-button w3-circle w3-xlarge w3-right" style="background-color: rgb(255, 178, 85); display: block;" href="usuarios/cerrar_sesion_users.php" title="Cerrar Sesión"><i class="fas fa-power-off fa-lg"></i></a>
+        </span>
+        <div id="barraCompleta" class="container align-items-center justify-content-center nav-link" style="display: none;">
+    		<div id="rightMenu" class="w3-sidebar w3-animate-right" style="display:none;right:0;">
+                <a id="cerrarSideBar" class="chida nav-link"><i class="fas fa-angle-double-right fa-lg"></i><strong style="font-size: 23px;"> Cerrar </strong><i class="fas fa-angle-double-right fa-lg"></i></a>
+                <a id="bparteUserDatosCompleta_2" class="chida listanav nav-link"><i class="fas fa-user-circle fa-lg"></i> <?php echo $_SESSION['nombres'].", ".$_SESSION['appat']."." ?></a>
+                <a id="regresarTodoCompleta" class="chida listanav nav-link" href="usuarios/cerrar_sesion_users.php"><i class="fas fa-power-off"></i> Cerrar sesión </a>
+                <a id="bpartePromoCompleta_1" class="chida listanav nav-link" href="#div-promociones" onclick="mostrar()" id="ind-promo"><i class="fas fa-certificate" onclick="mostrar()" href="#div-promociones"></i> Mis promociones </a>
+        	    <a id="bpartePromoCompleta_2" class="chida listanav nav-link" href="#descuentos" onclick="mdesc()" ><i class="fas fa-tags " data-fa-transform="rotate-260" href="#descuentos" onclick="mdesc()"></i> Descuentos </a>
+            </div>
+        </div>
+        
 		<!--Ventana modal-->
 	  	<div class="container"> 
 	    	<div id="id01" class="w3-modal">
@@ -277,6 +307,9 @@
 	    	</div>
 	    </div>
 
+        <!-- bototn para ir arriba-->
+        <span class="ir-arriba align-items-center justify-content-center"><i class="fas fa-angle-double-up fa-lg"></i></span>
+		
 		<!--Contenidos de la pagina en secciones,aside, etc..-->
 		<br>
 		<main>
@@ -396,7 +429,7 @@
 			    <p style="font-size: 30px;"><strong>GalMus V0.0.1 (Alpha)</strong></p>
 			    <span class="border border-warning">
 				<div class="embed-responsive embed-responsive-21by9">
-                     <iframe class="embed-responsive-item" src="videos/NotApp.mp4"></iframe>
+                     <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/262774326"></iframe>
                 </div></span><br>
                 <p style="font-size: 30px; text-align: center; "><a href="https://vimeo.com/262774326" target="_blank">Miralo en Vimeo</a></p>
 			</div>	
@@ -692,7 +725,6 @@
 			</div>
 		</footer>
 	</div>
-
 	<!--Scripts-->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gijgo@1.8.1/combined/js/gijgo.min.js" type="text/javascript"></script>
@@ -702,6 +734,7 @@
 	<script type="text/javascript" src="scripts/js/maps.js"></script>
 	<script type="text/javascript" src="scripts/js/otrasfunciones.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<!--Este script tiene metodos para mostrar ventana de errores en formularios de registro y login.-->
 	<script type="text/javascript">
 	        var mst = "<?php echo $_GET['most']; ?>";
@@ -710,7 +743,6 @@
 	        devolverTodo();
 	        
             function colaEfectos(mst){
-                
               //si la variable tiene el string, se mostrara la alerta de contraseña incorrecta o correcta
               if (mst == 'bien'){
                   //se muestra la ventana de contraseña de registro éxitoso una vez que la variable get sea igual a bien
@@ -754,8 +786,14 @@
                   }, 4400);
               }else{//mostrar div de logueado
               		$("#btnregis").css("display","none");
+              		$("#botton").css("display","none");
               		$("#barraPromo").css("display","block");
+              		$("#barraCompleta").css("display","block");
+              		$("#sideBoton").css("display","block");
+              		$("#elBotons").css("display","block");
+              		$("#auxOculto").css("display","block");
               		$("#btnCuenta").css("display","block");
+              		$("#datosCuenta").css("display","block");
               		$("#acercaDE").attr("href","acercade2.php?most=y");
               		$("#contactos").attr("href","acercade2.php?most=y#contact");
               		$("#misiones").attr("href","acercade2.php?most=y#mision");
@@ -766,8 +804,14 @@
             function devolverTodo(){//para al cerrar sesion, volver todo a la normmalidad.
             		   $("#regresarTodo").click(function(){
     						$("#btnregis").css("display","block");
+    						$("#botton").css("display","block");
                   			$("#barraPromo").css("display","none");
+                      		$("#barraCompleta").css("display","none");
+                      		$("#sideBoton").css("display","none");
+                      		$("#elBotons").css("display","none");
+                      		$("#auxOculto").css("display","none");
                   			$("#btnCuenta").css("display","none");
+                  			$("#datosCuenta").css("display","none");
                   			$("#acercaDE").attr("href","acercade2.php");
                   			$("#contactos").attr("href","acercade2.php#contact");
               				$("#misiones").attr("href","acercade2.php#mision");
@@ -775,6 +819,32 @@
               				$("#noticias").attr("href","noticias.php");
             		   });
             }
+    </script>
+    <!--para el efecto del tache del menu desplegable de la navbar-->
+    <script type="text/javascript">
+            cerrarMenu();
+            function abrirMenuSide() {
+                $("#rightMenu").css("display","block");
+            }
+            function cerrarMenu(){
+                $("#cerrarSideBar").click(function() {
+                    $("#rightMenu").css("display","none");
+                });
+            }
+        $(document).ready(function(){
+            $('.ir-arriba').click(function(){
+            		$('body, html').animate({
+            			scrollTop: '0px'
+            		}, 300);
+            	});
+            $(window).scroll(function(){
+            		if( $(this).scrollTop() > 0 ){
+            			$('.ir-arriba').slideDown(300);
+            		} else {
+            			$('.ir-arriba').slideUp(300);
+            		}
+            	});
+        });
     </script>
     <!--scripts del pug no documentados.-->
    	<script type="text/javascript">
